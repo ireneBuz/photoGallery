@@ -1,1 +1,20 @@
-<h4>holi color</h4>
+{{!-- <h4>holi color</h4> --}}
+
+<div class="container mt-5">
+
+    <div class="row">
+
+        {{#each allPhotosGallery}}
+
+        <div class="col-md-4">
+
+            <article class="photo mb-5">
+                <img class="w-50" src={{download_url}} alt="foto gallery">
+        </div>
+
+        </article>
+
+    </div>
+    {{/each}}
+</div>
+</div>
