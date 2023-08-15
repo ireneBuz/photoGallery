@@ -23,7 +23,10 @@ const collectionSchema = new Schema(
 
         image: {
             type: String,
-        }
+        },
+        images: [{
+            title:
+        }]
     })
 
 const Collection = model("Collection", collectionSchema);

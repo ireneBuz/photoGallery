@@ -59,9 +59,6 @@ router.post("/login", isLoggedOut, (req, res) => {
         .catch(err => next(err))
 })
 
-
-
-
 //log out route
 router.get("/logout", (req, res) => {
     req.session.destroy(() => res.redirect("/"))
