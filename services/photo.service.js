@@ -12,8 +12,8 @@ class PhotosApiHandler {
         return this.axiosApp.get('/v2/list')
     }
 
-    getOneCharacter(photo_id) {
-        return this.axiosApp.get(`/id/{image}`)
+    getOnePhoto(photo_id) {
+        return this.axiosApp.get(`/id/${photo_id}/info`)
     }
 
     //     saveCharacter(character_data) {

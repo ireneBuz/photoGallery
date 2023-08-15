@@ -17,7 +17,21 @@ const isLoggedOut = (req, res, next) => {
     }
 }
 
+const checkRoles = (...admittedRoles) => (req, res, next) => {
+
+    const { role } = req.session.currentUser
+
+    if (admittedRoles.includes(role)) {
+        next()
+    } else {
+        res.redirect('/inicio-sesion?err=No estás autorizado')
+    }
+}
+
+
 module.exports = {
     isLoggedIn,
-    isLoggedOut
+    isLoggedOut,
+    checkRoles
+
 }

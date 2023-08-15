@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const photoApi = require('../services/photo.service')
+const photoApi = require('../services/photo.service');
+const { isLoggedIn, checkRoles } = require('../middlewares/route-guard');
 
 
 
@@ -13,7 +14,7 @@ router.post("/photos/photo-index", (req, res, next) => {
     res.render("photos/photo-index")
 })
 
-//ruta get listado general fotos-BLACK AND WHITE GALLERY
+//ruta get - galeria fotos-BLACK AND WHITE GALLERY
 router.get("/photos/photo-black-gallery", (req, res, next) => {
     // res.render("photos/photo-black-gallery")
     photoApi
@@ -21,7 +22,7 @@ router.get("/photos/photo-black-gallery", (req, res, next) => {
         .then(response => {
             const allPhotosGallery = response.data
             allPhotosGallery.splice(0, 10)
-            allPhotosGallery.splice(10)
+            allPhotosGallery.splice(12)
 
             res.render('photos/photo-black-gallery', { allPhotosGallery })
             // console.log(allPhotosGallery)
@@ -30,15 +31,15 @@ router.get("/photos/photo-black-gallery", (req, res, next) => {
 
 })
 
-//ruta get listado general de fotos- COLOR GALERY
+//ruta get galeria fotos- COLOR GALERY
 router.get("/photos/photo-color-gallery", (req, res, next) => {
     // res.render("photos/photo-black-gallery")
     photoApi
         .getAllPhotos()
         .then(response => {
             const allPhotosGallery = response.data
-            allPhotosGallery.splice(0, 20)
-            allPhotosGallery.splice(10)
+            allPhotosGallery.splice(0, 22)
+            allPhotosGallery.splice(12)
 
             res.render('photos/photo-color-gallery', { allPhotosGallery })
             // console.log(allPhotosGallery)
@@ -47,17 +48,44 @@ router.get("/photos/photo-color-gallery", (req, res, next) => {
 
 })
 
-// //ruta get detalles fotos blanco y negro
-// router.get("/photos/black-gallery-details", (req, res, next) => {
-//     // res.render("photos/black - gallery - details")
-//     const { id: photo_id } = req.params
+//ruta get- detalle BLACO Y NEGRO
+router.get("/photos/black-details/:id", (req, res, next) => {
+    // res.send("HOLAAAAAAA")
+    const { id: photo_id } = req.params
+    // console.log('------------------------------------------------------------------------------------', photo_id)
 
-//     photoApi
-//         .getOnePhotoById(photo_id)
-//         .then(response => res.render("/photos/black-gallery-details", { photo: response.data }))
-//         .catch(err => console.log(err))
-// })
+    photoApi
+        .getOnePhoto(photo_id)
+        // console.log(photo_id)
 
+        .then(response => res.render("photos/black-details", { photo: response.data }))
+        .catch(err => console.log(err))
+})
+
+//ruta get - detalle COLOR
+router.get("/photos/color-details/:id", (req, res, next) => {
+    const { id: photo_id } = req.params
+
+    photoApi
+        .getOnePhoto(photo_id)
+        .then(response => res.render("photos/color-details", { photo: response.data }))
+        .catch(err => console.log(err))
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ruta get -detalle COLOR
 
 router.post("/photos/photo-black-gallery", (req, res, next) => {
     res.render("photos/photo-black-gallery")
