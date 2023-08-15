@@ -3,9 +3,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.index {
+/* .index {
   background-color: grey;
-}
+  background-image: url('https://picsum.photos/id/91/367/267');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
 
 a {
   color: #072632;
