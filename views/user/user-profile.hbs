@@ -1,15 +1,57 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Username: {{username}}</h2>
+            <hr>
+            <p>Email: {{email}}</p>
+            <hr>
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Username: {{username}}</h5>
-            <p class="card-text">Email: {{email}}</p>
+            <div class="mb-3">
+                <label for="image" class="form-label">Select profile photo</label>
+                <input type="file" class="form-control" id="profileImg" name="profileImg">
+            </div>
 
-            <a href="/user/edit-profile" class="btn btn-dark">Editar Perfil</a>
+            <div class="mb-3">
+                <label for="text" class="form-label">Description</label>
+                <input type="name" class="form-control" id="description" name="description">
+            </div>
+            <div class="btn-group mt-2">
+                <button type="button" class="btn btn-dark">Settings</button>
+                <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/user/edit-profile">Edit profile</a>
+                    <a class="dropdown-item" href="/user/delete-profile">Delete profile</a>
+                </div>
+            </div>
+        </div>
 
-            <a href="/user/create-collection" class="btn btn-dark">Create collection</a>
-
+        <div class="col-md-6">
+            <h2>Create collection</h2>
+            <hr>
+            <form action="/create-collection" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Author</label>
+                    <input type="name" class="form-control" id="Author" name="Author">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Bio</label>
+                    <input type="text" class="form-control" id="Bio" name="Bio">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Camera</label>
+                    <input type="text" class="form-control" id="Camera" name="Camera">
+                </div>
+                <div class="mb-3">
+                    <label for="text" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="Description" name="Description">
+                </div>
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
-
 </div>

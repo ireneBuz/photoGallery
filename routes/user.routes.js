@@ -43,21 +43,31 @@ router.post("/user/edit-profile", isLoggedIn, (req, res) => {
         .catch(err => console.log(err))
 })
 
-// USER CREATE COLLECTION
+//DELETE PROFILE
+router.post("/user/delete-profile", isLoggedIn, (req, res) => {
 
-router.get("/user/create-collection", isLoggedIn, (req, res) => {
-    res.render("user/create-collection")
 })
 
-router.post("/user/create-collection", (req, res) => {
 
-    const { Author, Bio, Camera, Description, Image } = req.body
-    Collection
 
-        .create({ Author, Bio, Camera, Description, Image })
-        .then(book => res.redirect(`/libros/detalles/${book._id}`))
-        .catch(err => console.log(err))
-})
+
+
+
+// // USER CREATE COLLECTION
+
+// router.get("/user/create-collection", isLoggedIn, (req, res) => {
+//     res.render("user/create-collection")
+// })
+
+// router.post("/user/create-collection", (req, res) => {
+
+//     const { Author, Bio, Camera, Description, Image } = req.body
+//     Collection
+
+//         .create({ Author, Bio, Camera, Description, Image })
+//         .then(Collection => res.redirect(`/user/user-collection`))
+//         .catch(err => console.log(err))
+// })
 
 
 // const userId = req.session.currentUser
