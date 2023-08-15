@@ -66,9 +66,10 @@ router.get("/photos/black-details/:id", (req, res, next) => {
 router.get("/photos/color-details/:id", (req, res, next) => {
     const { id: photo_id } = req.params
 
+
     photoApi
         .getOnePhoto(photo_id)
-        .then(response => res.render("photos/color-details", { photo: response.data }))
+        .then(response => res.render('photos/color-details', { photo: response.data }))
         .catch(err => console.log(err))
 })
 
