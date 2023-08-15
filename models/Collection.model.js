@@ -13,10 +13,6 @@ const collectionSchema = new Schema(
             type: String,
         },
 
-        location: {
-            type: String,
-        },
-
         description: {
             type: String
         },
@@ -25,7 +21,16 @@ const collectionSchema = new Schema(
             type: String,
         },
         images: [{
-            title:
+            title: String,
+            url: String,
+            // location: {
+            //     type: {
+            //         type: String
+            //     },
+            //     coordinates: {
+            //         type: [Number]
+            //     }
+            // }
         }]
     })
 

@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-8">
+
+            <h1>New collection</h1>
+            <hr>
+
+            <form action="/user/create-collection" method="POST" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="field1" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="field1" name="Author">
+                </div>
+
+                <div class="mb-3">
+                    <label for="field2" class="form-label">Bio</label>
+                    <input type="text" class="form-control" id="field2" name="Bio">
+                </div>
+                <div class="mb-3">
+                    <label for="field2" class="form-label">Camera</label>
+                    <input type="text" class="form-control" id="field2" name="Camera">
+                </div>
+                <div class="mb-3">
+                    <label for="field2" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="field2" name="Description">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
+                </div>
+
+        </div>
+    </div>
+
+    <div class="d-grid">
+        <button type="submit" class="btn btn-dark">Create collection</button>
+    </div>
+    </form>
+</div>
+</div>
+
+</div>
