@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div class="row">
+        {{#each collections}}
+        {{userId}}
+        {{#each images}}
+        <div class="col-md-4">
+            <article class="photo mb-5">
+                <div class="card" style="width: 18rem;">
+                    <div class="col-md-4">
+                        <article class="photo mb-5">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{url}}" alt="">
+                            </div>
+                        </article>
+                    </div>
+                    {{/each}}
+                    {{/each}}
+                </div>
+        </div>
+    </div>
+</div>

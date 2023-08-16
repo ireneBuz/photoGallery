@@ -5,6 +5,15 @@ const router = express.Router();
 const User = require('../models/User.model'); //nuevo
 const Collection = require('../models/Collection.model');
 
+router.get("/collection", isLoggedIn, (req, res) => {
+
+    Collection
+        .find()
+        .then((collections) => {
+            res.render('collection/index-collections', { collections })
+
+        })
+})
 
 router.get("/collection/create-collection", isLoggedIn, (req, res) => {
 
@@ -26,7 +35,7 @@ router.post("/collection/create-collection", uploaderMiddleware.single('newPhoto
 
     Collection
         .create(newDocument)
-        .then(() => res.send('done'))
+        .then(() => res.redirect('/collection'))
         .catch(err => console.log(err))
 
 })
@@ -44,29 +53,50 @@ router.post("/collection/create-collection", (req, res, next) => {
 
     Collection
         .create({ author: userId, camera, description })
-        .then(() => res.redirect("/collection/create-collection"))
+        .then(() => res.redirect("/collection/index-collections"))
         .catch(err => next(err))
 })
 
-router.get("/:id/edit", (req, res, next) => {
-    const { id } = req.params
+router.get("userId", (req, res, next) => {
+    const { userId } = req.params
     Collection
-        .findById(id)
-        .then(() => res.render("/collection/create-collection"))
+        .findById(userId)
+        .then(() => res.render("/collection/index-collections"))
         .catch(err => next(err))
 
 });
 
-router.post("/:id/edit", (req, res, next) => {
+router.post("userId", (req, res, next) => {
     const { author, camera, description } = req.body
-    const { id } = req.params
+    const { userId } = req.params
     Collection
-        .findByIdAndUpdate(id, { author, camera, description })
-        .then(() => res.redirect("/collection/create-collection"))
+        .findByIdAndUpdate(userId, { author, camera, description })
+        .then(() => res.redirect("/collection/index-collections"))
         .catch(err => next(err))
 })
 
 
+//fotos en perfil por id
+router.get("/collection", isLoggedIn, (req, res) => {
+    const { userId } = req.params
+
+    Collection
+        .findById(userId)
+        .then((collection) => {
+            res.render('user/user-profile', { collections })
+
+        })
+})
+router.post('/user/user-profile', (req, res) => {
+
+    const { userId } = req.params
+    const { author, camera, description } = req.body
+
+    Collection
+        .findByIdAndUpdate(userId, { author, camera, description })
+        .then(book => res.redirect(`/user/user-profile${userId}`))
+        .catch(err => console.log(err))
+})
 
 
 
