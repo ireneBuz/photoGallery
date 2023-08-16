@@ -1,6 +1,29 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.container.index {
+  background-image: url('../images/bakcground-index.jpg');
+  height: 100vh;
+  background-size: cover;
+  margin-right: 0;
+  margin-left: 0;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.gallery {
+  position: absolute;
+  left: 34%;
+  top: 17%;
+  text-decoration: none;
+  color: #fff;
+  font-size: 8rem;
+}
+
+.gallery:hover {
+  color: #fff;
 }
 
 .cover-container {
