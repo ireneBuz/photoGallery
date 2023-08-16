@@ -2,7 +2,8 @@ const { Schema, model } = require('mongoose')
 const collectionSchema = new Schema(
     {
         author: {
-            type: String,
+            type: Schema.Types.ObjectId,
+            ref: 'User'// Nombre del modelo referenciado
         },
 
         camera: {

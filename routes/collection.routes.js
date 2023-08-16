@@ -27,8 +27,50 @@ router.post("/collection/create-collection", uploaderMiddleware.single('newPhoto
     Collection
         .create(newDocument)
         .then(() => res.send('done'))
+        .catch(err => console.log(err))
 
 })
+
+router.get("/collection/create-collection", (req, res, next) => {
+
+    res.render("collection/create-collection");
+});
+
+router.post("/collection/create-collection", (req, res, next) => {
+    //sacar el id del usuario conectado y asociarselo a author
+    const userId = req.session.currentUser._id
+
+    const { camera, description } = req.body
+
+    Collection
+        .create({ author: userId, camera, description })
+        .then(() => res.redirect("/collection/create-collection"))
+        .catch(err => next(err))
+})
+
+router.get("/:id/edit", (req, res, next) => {
+    const { id } = req.params
+    Collection
+        .findById(id)
+        .then(() => res.render("/collection/create-collection"))
+        .catch(err => next(err))
+
+});
+
+router.post("/:id/edit", (req, res, next) => {
+    const { author, camera, description } = req.body
+    const { id } = req.params
+    Collection
+        .findByIdAndUpdate(id, { author, camera, description })
+        .then(() => res.redirect("/collection/create-collection"))
+        .catch(err => next(err))
+})
+
+
+
+
+
+
 
 
 module.exports = router

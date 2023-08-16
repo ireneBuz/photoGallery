@@ -1,12 +1,21 @@
-<form action="/collection/create-collection" method="post" enctype="multipart/form-data">
-    <input type="text" name="title">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Create collection</h1>
+            <hr>
+            <form action="/collection/create-collection" method="post" enctype="multipart/form-data">
 
-    <input type="text" name="description">
-    <input type="text" name="camera">
+
+                <input type="text" name="description">
+                <label for="">description</label>
+                <input type="text" name="camera">
+                <label for="">camera</label>
 
 
-    <label for="newPhotoCollection" class="form-label">Select profile photo</label>
-    <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection">
 
-    <button type="submit">enviar</button>
-</form>
+                <label for="newPhotoCollection" class="form-label">Select profile photo</label>
+                <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection">
+                <hr>
+
+                <button type="submit">Create</button>
+            </form>
