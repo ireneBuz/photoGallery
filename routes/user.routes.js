@@ -10,12 +10,18 @@ const Collection = require('../models/Collection.model');
 
 router.get("/user/user-profile", isLoggedIn, (req, res) => {
 
-    const userId = req.session.currentUser
+    const userId = req.session.currentUser._id
 
-    User
-        .findById(userId)
-        .then(user => res.render("user/user-profile", user))
-        .catch(err => console.log(err))
+    Collection
+
+        .find({ author: userId })
+
+        .then((collections) => {
+            console.log(collections)
+            res.render('user/user-profile', { collections, userId })
+
+        })
+
 })
 
 //EDIT PROFILE

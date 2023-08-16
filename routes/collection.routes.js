@@ -76,14 +76,16 @@ router.post("userId", (req, res, next) => {
 })
 
 
+
+
 //fotos en perfil por id
-router.get("/collection", isLoggedIn, (req, res) => {
-    const { userId } = req.params
+router.get("/user/user-profile", isLoggedIn, (req, res) => {
+    const userId = req.session.currentUser._id
 
     Collection
-        .findById(userId)
-        .then((collection) => {
-            res.render('user/user-profile', { collections })
+        .findById({ _id: userId })
+        .then((collections) => {
+            res.render('collection/index-collections', { collections, userId })
 
         })
 })
@@ -94,12 +96,9 @@ router.post('/user/user-profile', (req, res) => {
 
     Collection
         .findByIdAndUpdate(userId, { author, camera, description })
-        .then(book => res.redirect(`/user/user-profile${userId}`))
+        .then(() => res.redirect(`/user/user-profile${userId}`))
         .catch(err => console.log(err))
 })
-
-
-
 
 
 
