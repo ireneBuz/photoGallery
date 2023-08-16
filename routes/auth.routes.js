@@ -20,8 +20,6 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
         .then(hash => User.create({ username, email, password: hash }))
         .then(() => res.redirect("/user/user-profile"))
         .catch(err => next(err))
-
-    // res.render("auth/signup")
 })
 
 //login route
@@ -32,7 +30,6 @@ router.get("/login", isLoggedOut, (req, res) => {
 
 router.post("/login", isLoggedOut, (req, res) => {
     const { email, password } = req.body
-    // res.send(req.body)
 
     if (email.length === 0 || password.length === 0) {
         res.render("/login", { errorMessage: 'Fill the fields' })
