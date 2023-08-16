@@ -18,7 +18,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(password, salt))
         .then(hash => User.create({ username, email, password: hash }))
-        .then(() => res.redirect("/login"))
+        .then(() => res.redirect("/user/user-profile"))
         .catch(err => next(err))
 
     // res.render("auth/signup")

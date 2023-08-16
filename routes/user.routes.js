@@ -45,8 +45,26 @@ router.post("/user/edit-profile", isLoggedIn, (req, res) => {
 
 //DELETE PROFILE
 router.post("/user/delete-profile", isLoggedIn, (req, res) => {
+    const userId = req.params
+
+    User
+        .findByIdAndDelete(userId)
+        .then(() => res.redirect("/"))
+        .catch(err => console.log(err))
 
 })
+
+
+// router.post('/eliminar/:book_id', (req, res) => {
+
+//     const { book_id } = req.params
+
+//     Book
+//         .findByIdAndDelete(book_id)
+//         .then(() => res.redirect(`/libros/listado`))
+//         .catch(err => console.log(err))
+// })
+
 
 
 

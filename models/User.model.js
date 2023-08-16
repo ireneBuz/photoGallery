@@ -22,6 +22,7 @@ const userSchema = new Schema(
     },
     profileImg: {
       type: String,
+      // default:
     },
     description: {
       type: String,

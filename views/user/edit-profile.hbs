@@ -4,25 +4,37 @@
 
         <div class="col-md-8">
 
-            <h1>Editar Perfil</h1>
+            <h1>Edit profile</h1>
 
             <hr>
 
             <form action="/user/edit-profile" method="POST">
 
                 <div class="mb-3">
-                    <label for="field1" class="form-label">Username</label>
+                    <label for="field1" class="form-label">Edit Username</label>
                     <input type="text" class="form-control" id="field1" name="username" value="{{username}}">
                 </div>
 
                 <div class="mb-3">
-                    <label for="field2" class="form-label">Email</label>
+                    <label for="field2" class="form-label">Edit Email</label>
                     <input type="email" class="form-control" id="field2" name="email" value="{{email}}">
                 </div>
-
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-dark">Guardar</button>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Edit Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
                 </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Edit profile photo</label>
+                    <input type="file" class="form-control" id="profileImg" name="profileImg" accept="image/*"
+                        placeholder="Choose a profile photo">
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Edit description</label>
+                        <input type="name" class="form-control" id="description" name="description">
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-dark">Guardar</button>
+                    </div>
 
             </form>
         </div>

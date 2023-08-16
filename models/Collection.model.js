@@ -5,20 +5,12 @@ const collectionSchema = new Schema(
             type: String,
         },
 
-        bio: {
-            type: String,
-        },
-
         camera: {
             type: String,
         },
 
         description: {
             type: String
-        },
-
-        image: {
-            type: String,
         },
         images: [{
             title: String,
