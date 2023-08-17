@@ -8,37 +8,34 @@ const Collection = require('../models/Collection.model');
 
 //USER PROFILE
 
-router.get("/user/user-profile", isLoggedIn, (req, res) => {
+router.get("/user-profile", isLoggedIn, (req, res, next) => {
 
-    const userId = req.session.currentUser._id
+    const { _id: author } = req.session.currentUser
 
     Collection
-
-        .find({ author: userId })
-
+        .find({ author })
         .then((collections) => {
-            console.log(collections)
-            res.render('user/user-profile', { collections, userId })
-
+            res.render('user/user-profile', { collections })
         })
+        .catch(err => next(err))
 
 })
 
 //EDIT PROFILE
 
-router.get("/user/edit-profile", isLoggedIn, (req, res) => {
+router.get("/edit-profile", isLoggedIn, (req, res, next) => {
 
-    const userId = req.session.currentUser
+    const { _id: userId } = req.session.currentUser
 
     User
         .findById(userId)
         .then(user => res.render("user/edit-profile", user))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
-router.post("/user/edit-profile", isLoggedIn, (req, res) => {
+router.post("/edit-profile", isLoggedIn, (req, res, next) => {
 
-    const userId = req.session.currentUser
+    const { _id: userId } = req.session.currentUser
     const { username, email } = req.body
 
     User
@@ -46,29 +43,30 @@ router.post("/user/edit-profile", isLoggedIn, (req, res) => {
         .then(() => {
             res.redirect("/user/user-profile")
         })
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 })
 
 //DELETE PROFILE
-router.post("/user/delete-profile", isLoggedIn, (req, res) => {
-    const userId = req.params
+router.post("/delete-profile", isLoggedIn, (req, res, next) => {
+
+    const { userId } = req.params
 
     User
         .findByIdAndDelete(userId)
         .then(() => res.redirect("/"))
-        .catch(err => console.log(err))
+        .catch(err => next(err))
 
 })
 
 
-// router.post('/eliminar/:book_id', (req, res) => {
+// router.post('/eliminar/:book_id', (req, res, next) => {
 
 //     const { book_id } = req.params
 
 //     Book
 //         .findByIdAndDelete(book_id)
 //         .then(() => res.redirect(`/libros/listado`))
-//         .catch(err => console.log(err))
+//         .catch(err => next(err))
 // })
 
 
@@ -79,18 +77,18 @@ router.post("/user/delete-profile", isLoggedIn, (req, res) => {
 
 // // USER CREATE COLLECTION
 
-// router.get("/user/create-collection", isLoggedIn, (req, res) => {
+// router.get("/user/create-collection", isLoggedIn, (req, res, next) => {
 //     res.render("user/create-collection")
 // })
 
-// router.post("/user/create-collection", (req, res) => {
+// router.post("/user/create-collection", (req, res, next) => {
 
 //     const { Author, Bio, Camera, Description, Image } = req.body
 //     Collection
 
 //         .create({ Author, Bio, Camera, Description, Image })
 //         .then(Collection => res.redirect(`/user/user-collection`))
-//         .catch(err => console.log(err))
+//         .catch(err => next(err))
 // })
 
 
@@ -99,7 +97,7 @@ router.post("/user/delete-profile", isLoggedIn, (req, res) => {
 // User
 //     .findById(userId)
 //     .then(user => res.render("user/user-profile", user))
-//     .catch(err => console.log(err))
+//     .catch(err => next(err))
 
 
 module.exports = router
