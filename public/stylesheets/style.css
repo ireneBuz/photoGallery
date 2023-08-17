@@ -2,6 +2,27 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.register-page {
+  background-image: url('../images/fondo2.jpg');
+  height: 100vh;
+  width: 100vw;
+}
+
+.login-page {
+  background-image: url('../images/fondo2.jpg');
+  height: 100vh;
+  width: 100vw;
+}
+
+.user-profile {
+  background-image: url('../images/user-profile.jpg');
+}
+
+.edit-profile {
+  background-image: url('../images/user-profile.jpg');
+  height: 100vh;
+}
+
 .container.index {
   background-image: url('../images/bakcground-index.jpg');
   height: 100vh;
