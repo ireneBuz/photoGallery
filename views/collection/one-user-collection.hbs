@@ -2,16 +2,17 @@
 {{userId}}
 {{#each images}}
 {{/each}} --}}
-<div class="container mt-5">
+<div class="container-fluid my-photos">
     <div class="row">
-        <h2>My Photos</h2>
-        {{#each collections}}
-        <h5>{{description}}</h5>
-        <p>{{camera}}</p>
-        {{#each images}}
-        <div class="col-md-4">
+
+        <div class="col-md-4 card-my-photos">
+            <h2>My Photos</h2>
+            {{#each collections}}
+            <h5>{{description}}</h5>
+            <p>{{camera}}</p>
+            {{#each images}}
             <article class="photo mb-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <img src="{{url}}" alt="">
                     <h5>{{title}}</h5>
                 </div>
