@@ -6,7 +6,6 @@ const isLoggedIn = (req, res, next) => {
     }
 }
 
-
 const isLoggedOut = (req, res, next) => {
 
     console.log('ESTAS EN MIDDLEWARE IS LOGGED OUT')
@@ -27,7 +26,6 @@ const checkRoles = (...admittedRoles) => (req, res, next) => {
         res.redirect('/inicio-sesion?err=No estás autorizado')
     }
 }
-
 
 module.exports = {
     isLoggedIn,

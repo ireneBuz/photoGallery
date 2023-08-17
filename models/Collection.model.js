@@ -6,7 +6,7 @@ const collectionSchema = new Schema(
         },
         author: {
             type: Schema.Types.ObjectId,
-            ref: 'User'// Nombre del modelo referenciado
+            ref: 'User'
         },
 
         camera: {
@@ -19,14 +19,6 @@ const collectionSchema = new Schema(
         images: [{
             title: String,
             url: String,
-            // location: {
-            //     type: {
-            //         type: String
-            //     },
-            //     coordinates: {
-            //         type: [Number]
-            //     }
-            // }
         }]
     })
 

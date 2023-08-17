@@ -15,14 +15,6 @@ class PhotosApiHandler {
     getOnePhoto(photo_id) {
         return this.axiosApp.get(`/id/${photo_id}/info`)
     }
-
-    //     saveCharacter(character_data) {
-    //         return this.axiosApp.post(`/characters`, character_data)
-    //     }
-
-    //     editCharacter(character_id, character_data) {
-    //         return this.axiosApp.put(`/characters/${character_id}`, character_data)
-    //     }
 }
 
 

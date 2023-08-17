@@ -6,10 +6,10 @@ const { isLoggedOut } = require('../middlewares/route-guard');
 const plainPassword = 'Hello';
 const saltRounds = 10
 
-//register route
 router.get("/signup", isLoggedOut, (req, res) => {
     res.render("auth/signup")
 })
+
 
 router.post("/signup", isLoggedOut, (req, res, next) => {
     const { username, email, password } = req.body
@@ -22,11 +22,11 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
         .catch(err => next(err))
 })
 
-//login route
 
 router.get("/login", isLoggedOut, (req, res) => {
     res.render("auth/login")
 })
+
 
 router.post("/login", isLoggedOut, (req, res) => {
     const { email, password } = req.body
@@ -50,13 +50,13 @@ router.post("/login", isLoggedOut, (req, res) => {
                 return
             }
 
-            req.session.currentUser = foundUser // login!
+            req.session.currentUser = foundUser
             res.redirect("/")
         })
         .catch(err => next(err))
 })
 
-//log out route
+
 router.get("/logout", (req, res) => {
     req.session.destroy(() => res.redirect("/"))
 })
