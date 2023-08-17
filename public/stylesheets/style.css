@@ -3,13 +3,13 @@ body {
 }
 
 .register-page {
-  background-image: url('../images/fondo2.jpg');
+  background-image: url('../images/bakcground-index.jpg');
   height: 100vh;
   width: 100vw;
 }
 
 .login-page {
-  background-image: url('../images/fondo2.jpg');
+  background-image: url('../images/bakcground-index.jpg');
   height: 100vh;
   width: 100vw;
 }
@@ -17,6 +17,11 @@ body {
 .user-profile {
   background-image: url('../images/bakcground-index.jpg');
   height: 100vh;
+}
+
+.card-user-profile {
+  background-color: #fff;
+  border: 5px solid #000000;
 }
 
 .edit-profile {
@@ -122,10 +127,22 @@ body {
   margin-left: 40px;
 }
 
+.card-index-collections {
+  border: 10px solid;
+  border-color: #fff;
+}
+
 .create-collection {
   background-image: url('../images/bakcground-index.jpg');
   height: 100vh;
   width: 100vw;
+}
+
+.index-collections {
+  background-image: url('../images/bakcground-index.jpg');
+  height: 100vh;
+  width: 100vw;
+
 }
 
 .formulary-form {
@@ -135,10 +152,36 @@ body {
   margin-top: 70px;
 }
 
+.login-form {
+  background-color: #fff;
+  border-color: #000000;
+  border: 2px solid;
+  margin-top: 70px;
+}
+
+.signup-form {
+  background-color: #fff;
+  border-color: #000000;
+  border: 2px solid;
+  margin-top: 25px;
+}
+
 .edit-profile-form {
   background-color: #fff;
   border-color: #000000;
   border: 5px solid;
+  margin-top: 15px;
+}
+
+.my-photos {
+  background-image: url('../images/bakcground-index.jpg');
+  height: 100vh;
+  width: 100vw;
+}
+
+.card-my-photos {
+  background-color: #fff;
+  border: 5px solid #000000;
   margin-top: 15px;
 }
 
