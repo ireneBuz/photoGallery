@@ -2,7 +2,7 @@ const express = require('express');
 const { isLoggedIn } = require('../middlewares/route-guard');
 const uploaderMiddleware = require('../middlewares/uploader.middleware');
 const router = express.Router();
-const User = require('../models/User.model'); //nuevo
+const User = require('../models/User.model');
 const Collection = require('../models/Collection.model');
 
 router.get("/collection", isLoggedIn, (req, res) => {
@@ -76,8 +76,6 @@ router.post("userId", (req, res, next) => {
 })
 
 
-
-
 //fotos en perfil por id
 router.get("/user/user-profile", isLoggedIn, (req, res) => {
     const userId = req.session.currentUser._id
@@ -99,7 +97,5 @@ router.post('/user/user-profile', (req, res) => {
         .then(() => res.redirect(`/user/user-profile${userId}`))
         .catch(err => console.log(err))
 })
-
-
 
 module.exports = router
