@@ -4,7 +4,7 @@
         {{#each collections}}
 
         <div class="col-4 card p-2 m-4">
-            Esta colecion es de: {{author.username}}
+            <h2>{{author.username}} Collection</h2>
             <form action="/collection/{{_id}}" method="POST">
                 <a href="/collection/one-user-collection" class="btn btn-dark">View User Collection</a>
                 {{!-- <a type="submit" value="ver colection"> --}}

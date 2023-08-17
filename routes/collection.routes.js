@@ -11,7 +11,6 @@ router.get("/collection", isLoggedIn, (req, res, next) => {
         .find()
         .populate('author')
         .then((collections) => {
-            // res.send(collections)
             res.render('collection/index-collections', { collections })
         })
         .catch(err => next(err))
@@ -38,17 +37,20 @@ router.get("/collection/create-collection", isLoggedIn, (req, res) => {
 })
 
 
-router.post("/collection/create-collection", uploaderMiddleware.array('newPhotoCollection'), (req, res) => {
+router.post("/collection/create-collection", uploaderMiddleware.single('newPhotoCollection'), (req, res) => {
 
     const { title, description, camera } = req.body
-    const newDocument = { title, description, camera }
-    newDocument.images = { title: 'prueba' }
+    const newDocument = { description, camera }
     newDocument.author = req.session.currentUser._id
 
+    if (req.file) {
+        const { path: newPhotoCollection } = req.file
+        console.log('aqui est al aimagen---', newPhotoCollection)
 
-    if (req.files) {
-        const { path: newPhotoCollection } = req.files
-        newDocument.images.url = newPhotoCollection
+        newDocument.images = {
+            title: title,
+            url: newPhotoCollection
+        }
     }
 
     Collection

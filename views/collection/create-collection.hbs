@@ -5,23 +5,20 @@
             <hr>
             <form action="/collection/create-collection" method="post" enctype="multipart/form-data">
                 <label for="text">Title</label>
-                <input type="text" name="Title">
+                <input type="text" name="title">
                 <hr>
                 <label for="">Description</label>
-                <input type="text" name="Description">
+                <input type="text" name="description">
 
                 <hr>
                 <label for="">Camera</label>
-                <input type="text" name="Camera">
+                <input type="text" name="camera">
                 <hr>
 
-                <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Add your photos</label>
-                    <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection" multiple>
+                <div>
+                    <label for="newPhotoCollection" class="form-label">Select profile photo</label>
+                    <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection">
                 </div>
-
-                {{!-- <label for="newPhotoCollection" class="form-label">Select profile photo</label>
-                <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection"> --}}
                 <hr>
 
                 <button type="submit">Create</button>
