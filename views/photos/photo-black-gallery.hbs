@@ -1,33 +1,20 @@
-<div class="container mt-5">
-    <div class="row">
+{{!-- <div class="container background-black mt-5"> --}}
+    <div class="row background-black-gallery">
         {{#each allPhotosGallery}}
 
         <div class="col-md-4">
             <article class="photo mb-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card text-center" style="width: 18rem;">
                     <img class="card-img-top greyscale-img" src={{download_url}} alt="foto gallery">
                     <div class="card-body">
                         <h5 class="card-title">{{author}}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="/photos/black-details/{{id}}" class="btn btn-primary">Info</a>
+                        <a href="/photos/black-details/{{id}}" class="btn btn-dark col-12 mx-auto">View Photo</a>
                     </div>
                 </div>
             </article>
         </div>
         {{/each}}
     </div>
-</div>
 
-
-
-
-
-{{!-- <h4>{{allPhotosGallery}}</hr> --}}
-
-
-    {{!-- <div class="btn-group">
-        <a href="/personajes/detalles/{{id}}" class="btn btn-dark btn-sm">Ver detalles</a>
-        <a href="/personajes/editar/{{id}}" class=" btn btn-warning btn-sm">Editar</a>
-        <a href="/???" class="btn btn-danger btn-sm">Eliminar</a>
-    </div> --}}
+    {{!--
+</div> --}}

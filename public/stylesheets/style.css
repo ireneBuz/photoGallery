@@ -63,6 +63,24 @@ body {
   color: #fff;
 }
 
+.greyscale-img {
+  filter: grayscale(100%);
+}
+
+.greyscale-img-black-details {
+  filter: grayscale(100%);
+  height: 100vh;
+  width: 100vw;
+}
+
+.background-black-gallery {
+  background-image: url('../images/fondo-modified.png');
+}
+
+.background-color-gallery {
+  background-image: url('../images/fondo.png');
+}
+
 .cover-container {
   display: flex;
   align-items: center;
