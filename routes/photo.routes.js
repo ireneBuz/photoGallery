@@ -73,19 +73,6 @@ router.get("/photos/color-details/:id", (req, res, next) => {
         .catch(err => console.log(err))
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //ruta get -detalle COLOR
 
 router.post("/photos/photo-black-gallery", (req, res, next) => {
