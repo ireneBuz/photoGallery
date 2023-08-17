@@ -2,7 +2,7 @@ const express = require('express');
 const { isLoggedIn } = require('../middlewares/route-guard');
 const uploaderMiddleware = require('../middlewares/uploader.middleware');
 const router = express.Router();
-const User = require('../models/User.model'); //nuevo
+const User = require('../models/User.model');
 const Collection = require('../models/Collection.model');
 
 router.get("/collection", isLoggedIn, (req, res, next) => {
