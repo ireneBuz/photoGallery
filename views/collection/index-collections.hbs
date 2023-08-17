@@ -1,7 +1,9 @@
 <div class="container mt-5">
     <div class="row">
+
         {{#each collections}}
-        {{userId}}
+
+        {{!-- {{userId}}
         {{#each images}}
         <div class="col-md-4">
             <article class="photo mb-5">
@@ -16,6 +18,19 @@
                     {{/each}}
                     {{/each}}
                 </div>
+        </div> --}}
+
+        <div class="col-4 card p-2 m-4">
+            Esta colecion es de: {{author.username}}
+            <form action="/collection/{{_id}}" method="POST">
+                <a href="/collection/one-user-collection" class="btn btn-dark">View User Collection</a>
+                {{!-- <a type="submit" value="ver colection"> --}}
+            </form>
+
         </div>
+        {{/each}}
+
+
+
     </div>
 </div>

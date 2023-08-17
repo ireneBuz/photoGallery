@@ -4,17 +4,24 @@
             <h1>Create collection</h1>
             <hr>
             <form action="/collection/create-collection" method="post" enctype="multipart/form-data">
+                <label for="text">Title</label>
+                <input type="text" name="Title">
+                <hr>
+                <label for="">Description</label>
+                <input type="text" name="Description">
 
+                <hr>
+                <label for="">Camera</label>
+                <input type="text" name="Camera">
+                <hr>
 
-                <input type="text" name="description">
-                <label for="">description</label>
-                <input type="text" name="camera">
-                <label for="">camera</label>
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Add your photos</label>
+                    <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection" multiple>
+                </div>
 
-
-
-                <label for="newPhotoCollection" class="form-label">Select profile photo</label>
-                <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection">
+                {{!-- <label for="newPhotoCollection" class="form-label">Select profile photo</label>
+                <input type="file" class="form-control" id="newPhotoCollection" name="newPhotoCollection"> --}}
                 <hr>
 
                 <button type="submit">Create</button>

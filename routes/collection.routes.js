@@ -9,11 +9,23 @@ router.get("/collection", isLoggedIn, (req, res) => {
 
     Collection
         .find()
+        .populate('author')
         .then((collections) => {
+            // res.send(collections)
             res.render('collection/index-collections', { collections })
 
         })
 })
+
+//endpoint que reciba el id del boton ver colecion, buiscar en bbdd ese id y renderizar otra vista con las fotos de esa collecion y otros datos de la cole
+router.post("/collection/one-user-collection", isLoggedIn, (req, res) => {
+    const { title, username, } = req.body
+    const { userId } = req.params
+
+    Collection
+
+})
+
 
 router.get("/collection/create-collection", isLoggedIn, (req, res) => {
 
@@ -22,9 +34,9 @@ router.get("/collection/create-collection", isLoggedIn, (req, res) => {
     res.render('collection/create-collection')
 })
 
-router.post("/collection/create-collection", uploaderMiddleware.single('newPhotoCollection'), (req, res) => {
-    const { description, camera } = req.body
-    const newDocument = { description, camera }
+router.post("/collection/create-collection", uploaderMiddleware.array('newPhotoCollection'), (req, res) => {
+    const { title, description, camera } = req.body
+    const newDocument = { title, description, camera }
     newDocument.images = { title: 'prueba' }
     newDocument.author = req.session.currentUser._id
 
