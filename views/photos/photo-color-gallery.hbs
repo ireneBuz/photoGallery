@@ -1,19 +1,18 @@
-<div class="container mt-5">
-    <div class="row">
+{{!-- <div class="container mt-5"> --}}
+    <div class="row background-color-gallery">
         {{#each allPhotosGallery}}
         <div class="col-md-4">
             <article class="photo mb-5">
-                <div class="card" style="width: 18rem;">
+                <div class="card text-center" style="width: 18rem;">
                     <img class="card-img-top" src={{download_url}} alt="foto gallery">
                     <div class="card-body">
                         <h5 class="card-title">{{author}}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="/photos/color-details/{{id}}" class="btn btn-primary">Info</a>
+                        <a href="/photos/color-details/{{id}}" class="btn btn-dark col-12 mx-auto">More Details</a>
                     </div>
                 </div>
             </article>
         </div>
         {{/each}}
     </div>
-</div>
+    {{!--
+</div> --}}
