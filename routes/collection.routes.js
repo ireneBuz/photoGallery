@@ -17,16 +17,17 @@ router.get("/collection", isLoggedIn, (req, res, next) => {
 
 })
 
-//endpoint que reciba el id del boton ver colecion, buiscar en bbdd ese id y renderizar otra vista con las fotos de esa collecion y otros datos de la cole
-router.get("/collection/one-user-collection", (req, res, next) => {
-    const { _id: userId } = req.session.currentUser
+router.get("/collection/:id/user-collection", isLoggedIn, (req, res, next) => {
+    const user = req.session.currentUser
+    const { id: author } = req.params
+
 
     Collection
-        .findById(userId)
-        .then((user) => res.render(`collection/one-user-collection`, user))
+        .find({ author })
+        .then((collections) => { res.render('collection/one-user-collection', { collections, user }) })
         .catch(err => next(err))
 
-});
+})
 
 
 router.get("/collection/create-collection", isLoggedIn, (req, res) => {

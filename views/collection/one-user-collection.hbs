@@ -1,6 +1,23 @@
-<h3>hola</h3>
-
-{{!-- {{username}} --}}
+{{!-- {{username}}
 {{userId}}
 {{#each images}}
-{{/each}}
+{{/each}} --}}
+<div class="container mt-5">
+    <div class="row">
+        <h2>My Photos</h2>
+        {{#each collections}}
+        <h5>{{description}}</h5>
+        <p>{{camera}}</p>
+        {{#each images}}
+        <div class="col-md-4">
+            <article class="photo mb-5">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{url}}" alt="">
+                    <h5>{{title}}</h5>
+                </div>
+            </article>
+        </div>
+        {{/each}}
+        {{/each}}
+    </div>
+</div>

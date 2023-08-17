@@ -9,13 +9,13 @@ const Collection = require('../models/Collection.model');
 //USER PROFILE
 
 router.get("/user-profile", isLoggedIn, (req, res, next) => {
-
+    const user = req.session.currentUser
     const { _id: author } = req.session.currentUser
 
     Collection
         .find({ author })
         .then((collections) => {
-            res.render('user/user-profile', { collections })
+            res.render('user/user-profile', { collections, user })
         })
         .catch(err => next(err))
 
